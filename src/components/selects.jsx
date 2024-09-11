@@ -9,16 +9,14 @@ export default function Selects({
 	getSelectValue,
 }) {
 	let [currencyData, setCurrencyData] = useState({
-		id: 147,
 		name: "US Dollar",
 		short_code: "USD",
 	});
+	// Populate Select Options on page load with useEffect
 	useEffect(() => {
-		let currencyapi = `https://api.currencybeacon.com/v1/currencies?api_key=wOaB3DNGN9CleUy4OgtCIgsGbR0xeIQK`;
+		let currencyListapi = `https://api.currencybeacon.com/v1/currencies?api_key=wOaB3DNGN9CleUy4OgtCIgsGbR0xeIQK`;
 
-		console.log(currencyapi);
-
-		fetch(currencyapi)
+		fetch(currencyListapi)
 			.then((response) => response.json())
 			.then((data) => {
 				setCurrencyData(data.response);
