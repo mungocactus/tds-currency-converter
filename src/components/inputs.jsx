@@ -5,7 +5,7 @@ export default function Inputs({
 	inputValue,
 	inputRef,
 	inputPlaceholder,
-	getValue,
+	getInputValue,
 }) {
 	return (
 		<div className="input-container">
@@ -17,7 +17,7 @@ export default function Inputs({
 				name={inputId}
 				defaultValue={inputValue}
 				placeholder={inputPlaceholder}
-				onChange={getValue}
+				onChange={getInputValue}
 			></input>
 		</div>
 	);
