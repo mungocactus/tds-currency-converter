@@ -32,7 +32,6 @@ label {
 select {
 	border: solid 1px lightgrey;
 	border-radius: 7px 0 0 7px;
-	font-family: initial;
 	font-size: 18px;
 	letter-spacing: 1px;
 	height: 34px;
@@ -44,7 +43,6 @@ select {
 input {
 	border: solid 1px lightgrey;
 	border-radius: 0 7px 7px 0;
-	font-family: initial;
 	font-size: 18px;
 	letter-spacing: 1px;
 	height: 30px;
@@ -53,7 +51,26 @@ input {
 	padding-left: 20px;
 }
 
-p {
+h4 {
+	font-size: 20px;
 	font-style: italic;
+	text-align: left;
+}
+
+.exchange-amount {
+	background-color: #91fc8f;
+	border: solid 1px lightgrey;
+	border-radius: 0 7px 7px 0;
+	font-size: 18px;
+	letter-spacing: 1px;
+	height: 32px;
+	margin-top: 3px;
+	width: 154px;
+	padding-left: 20px;
+}
+
+p {
+	margin: 0;
+	padding-top: 2px;
 	text-align: left;
 }
