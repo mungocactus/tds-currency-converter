@@ -1,15 +1,35 @@
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Inputs from "./components/inputs.jsx";
 import Selects from "./components/selects.jsx";
 
 function App() {
+	let [currencyData, setCurrencyData] = useState([]);
 	let [currencyConverted, setCurrencyConverted] = useState(1);
 
 	const currencyFromSelect = useRef();
 	const currencyToSelect = useRef();
 	const currencyInitialAmount = useRef();
+
+	// Populate Select Options on page load with useEffect
+	useEffect(() => {
+		let currencyListapi = `https://api.currencybeacon.com/v1/currencies?api_key=wOaB3DNGN9CleUy4OgtCIgsGbR0xeIQK`;
+
+		fetch(currencyListapi)
+			.then((response) => response.json())
+			.then((data) => {
+				setCurrencyData(data.response);
+			})
+			.catch((error) => console.log(error));
+	}, []);
+
+	const getCurrencyOptions = currencyData.map((currency) => (
+		<option key={currency.id} value={currency.short_code}>
+			{currency.name}
+		</option>
+	));
+	// end of populating Select Options
 
 	// Get various current values on change of any one of them
 	function getCurrentValue() {
@@ -42,6 +62,7 @@ function App() {
 						selectLabelTitle="Select Currency"
 						selectName="currency-from"
 						getSelectValue={getCurrentValue}
+						selectOptions={getCurrencyOptions}
 					/>
 					<Inputs
 						inputRef={currencyInitialAmount}
@@ -61,6 +82,7 @@ function App() {
 						selectLabelTitle="Select Currency"
 						selectName="currency-to"
 						getSelectValue={getCurrentValue}
+						selectOptions={getCurrencyOptions}
 					/>
 					<div className="input-container">
 						<label>Amount</label>
