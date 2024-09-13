@@ -74,7 +74,7 @@ function App() {
 						getInputValue={getCurrentValue}
 					/>
 				</div>
-				<h4>Converts to</h4>
+				<h4>Converts </h4>
 				<div className="converter">
 					<Selects
 						selectRef={currencyToSelect}
