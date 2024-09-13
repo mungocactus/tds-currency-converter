@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import Inputs from "./components/inputs.jsx";
-import Selects from "./components/selects.jsx";
+import Inputs from "./components/Inputs.jsx";
+import Selects from "./components/Selects.jsx";
 
 function App() {
 	let [currencyData, setCurrencyData] = useState([]);

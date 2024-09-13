@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-// import Options from "./currency-options.jsx";
-
 export default function Selects({
 	selectLabelTitle,
 	selectId,
