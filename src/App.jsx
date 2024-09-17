@@ -19,10 +19,17 @@ function App() {
 		fetch(currencyListapi)
 			.then((response) => response.json())
 			.then((data) => {
+				console.log(data.response);
 				setCurrencyData(data.response);
 			})
 			.catch((error) => console.log(error));
 	}, []);
+
+	currencyData.sort(function (a, b) {
+		let textA = a.name;
+		let textB = b.name;
+		return textA.localeCompare(textB);
+	});
 
 	const getCurrencyOptions = currencyData.map((currency) => (
 		<option key={currency.id} value={currency.short_code}>
